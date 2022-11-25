@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-design-gateway
+  labels:
+    app: system-design-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: system-design-gateway
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+  template:
+    metadata:
+      labels:
+        app: system-design-gateway
+    spec:
+      containers:
+        - name: system-design-gateway
+          image: minh123456/system-design-gateway
+          envFrom:
+            - configMapRef:
+                name: gateway-configmap
+            - secretRef:
+                name: gateway-secret

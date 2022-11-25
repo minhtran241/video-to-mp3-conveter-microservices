@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-configmap
+data:
+  AUTH_SVC_ADDRESS: 'system-design-auth:5000'
+  MONGO_URI: 'mongodb://host.minikube.internal:27017/videos'
+  SERVER_HOST: '0.0.0.0'
+  SERVER_PORT: '8080'

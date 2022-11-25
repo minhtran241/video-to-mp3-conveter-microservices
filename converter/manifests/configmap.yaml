@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: converter-configmap
+data:
+  MONGO_HOST: 'host.minikube.internal'
+  MONGO_PORT: '27017'
+  VIDEO_QUEUE: 'video'
+  MP3_QUEUE: 'mp3'

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: system-design-gateway
+spec:
+  selector:
+    app: system-design-gateway
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP

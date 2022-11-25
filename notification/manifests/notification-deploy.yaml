@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-design-notification
+  labels:
+    app: system-design-notification
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: system-design-notification
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 8
+  template:
+    metadata:
+      labels:
+        app: system-design-notification
+    spec:
+      containers:
+        - name: system-design-notification
+          image: minh123456/system-design-notification
+          envFrom:
+            - configMapRef:
+                name: notification-configmap
+            - secretRef:
+                name: notification-secret

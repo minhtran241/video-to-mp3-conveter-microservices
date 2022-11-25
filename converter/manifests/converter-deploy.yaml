@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-design-converter
+  labels:
+    app: system-design-converter
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: system-design-converter
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 8
+  template:
+    metadata:
+      labels:
+        app: system-design-converter
+    spec:
+      containers:
+        - name: system-design-converter
+          image: minh123456/system-design-converter
+          envFrom:
+            - configMapRef:
+                name: converter-configmap
+            - secretRef:
+                name: converter-secret

@@ -1,0 +1,7 @@
+MISSING_CREDENTIALS: str = "missing credentials"
+INVALID_CREDENTIALS: str = "invalid credentials"
+UNAUTHORIZED: str = "unauthorized"
+ONE_FILE_REQUIRED = "exactly one file required"
+SUCCESS = "success"
+INTERNAL_SERVER_ERROR = "internal server error"
+FID_REQUIRED = "fid is required"
